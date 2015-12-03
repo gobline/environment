@@ -34,7 +34,7 @@ class UriBuilderTest extends PHPUnit_Framework_TestCase
         $uriBuilder = new UriBuilder($environment);
 
         $this->assertSame('/foo/bar', $uriBuilder->buildUri($request->getUri()->getPath(), null, false));
-        $this->assertSame($url,  $uriBuilder->buildUri($request->getUri()->getPath(), null, true));
+        $this->assertSame($url, $uriBuilder->buildUri($request->getUri()->getPath(), null, true));
 
         $this->assertSame('http://example.com/fr/foo/bar', $uriBuilder->buildUri($request->getUri()->getPath(), 'fr', true));
 

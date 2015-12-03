@@ -11,8 +11,6 @@
 
 namespace Gobline\Environment;
 
-use Psr\Http\Message\ServerRequestInterface;
-
 /**
  * @author Mathieu Decaffmeyer <mdecaffmeyer@gmail.com>
  */
@@ -20,7 +18,8 @@ class UriBuilder
 {
     protected $environment;
 
-    public function __construct(Environment $environment) {
+    public function __construct(Environment $environment)
+    {
         $this->environment = $environment;
     }
 
