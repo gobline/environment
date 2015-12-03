@@ -40,7 +40,7 @@ class LanguageSubdirectoryResolver implements LanguageResolverInterface
 
         $language = array_shift($pathExploded);
 
-        if (in_array($language, $this->Eevironment->getSupportedLanguages())) {
+        if (in_array($language, $this->environment->getSupportedLanguages())) {
             return $language;
         } elseif ($this->environment->getDefaultLanguage()) {
             return $this->environment->getDefaultLanguage();

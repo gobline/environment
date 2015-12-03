@@ -25,8 +25,10 @@ class UriBuilderTest extends PHPUnit_Framework_TestCase
         $request = new ServerRequest([], [], $url);
         $environment = new Environment();
         $environment->setRequest($request);
+        $environment->setDefaultLanguage('en');
+        $environment->setSupportedLanguages(['en', 'fr', 'nl']);
 
-        $languageResolver = new LanguageSubdirectoryResolver(['fr', 'nl', 'en'], 'en');
+        $languageResolver = new LanguageSubdirectoryResolver($environment);
         $language = $languageResolver->resolve($request);
         $this->assertSame('en', $language);
 
@@ -42,7 +44,7 @@ class UriBuilderTest extends PHPUnit_Framework_TestCase
         $request = new ServerRequest([], [], $url);
         $environment->setRequest($request);
 
-        $languageResolver = new LanguageSubdirectoryResolver(['fr', 'nl', 'en'], 'en');
+        $languageResolver = new LanguageSubdirectoryResolver($environment);
         $language = $languageResolver->resolve($request);
         $this->assertSame('en', $language);
 
@@ -55,7 +57,7 @@ class UriBuilderTest extends PHPUnit_Framework_TestCase
         $request = new ServerRequest([], [], $url);
         $environment->setRequest($request);
 
-        $languageResolver = new LanguageSubdirectoryResolver(['fr', 'nl', 'en'], 'en');
+        $languageResolver = new LanguageSubdirectoryResolver($environment);
         $language = $languageResolver->resolve($request);
         $this->assertSame('fr', $language);
 
