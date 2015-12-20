@@ -100,7 +100,9 @@ class Environment implements EnvironmentInterface
             throw new \Exception('Request not found');
         }
 
-        $this->language = $this->languageResolver->resolve($this->request);
+        $request = $this->basePathResolver->removeBasePath($this->request);
+
+        $this->language = $this->languageResolver->resolve($request);
 
         return $this->language;
     }
