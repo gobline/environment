@@ -224,11 +224,19 @@ class Environment implements EnvironmentInterface
 
     public function buildUri($path, $language = null, $absolute = false)
     {
+        if (!$language) {
+            $language = $this->getLanguage();
+        }
+
         return $this->uriBuilder->buildUri($path, $language, $absolute);
     }
 
     public function buildUrl($path, $language = null)
     {
+        if (!$language) {
+            $language = $this->getLanguage();
+        }
+
         return $this->uriBuilder->buildUri($path, $language, true);
     }
 

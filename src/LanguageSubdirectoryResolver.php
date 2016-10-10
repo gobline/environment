@@ -54,7 +54,7 @@ class LanguageSubdirectoryResolver implements LanguageResolverInterface
         $path = $request->getUri()->getPath();
 
         if ($language !== $this->environment->getDefaultLanguage()) {
-            $path = '/'.$language.$path;
+            $path = '/'.$language.($path === '/' ? '' : $path);
         }
 
         return $request
