@@ -47,6 +47,11 @@ class Environment implements EnvironmentInterface
         return $this->request;
     }
 
+    public function isSubRequest()
+    {
+        return $this->request->getAttribute('_isSubRequest');
+    }
+
     public function setRequest(ServerRequestInterface $request)
     {
         $this->request = $request;
